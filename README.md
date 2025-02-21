@@ -1,70 +1,123 @@
-# Getting Started with Create React App
+# Sentiment Analysis App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+The Sentiment Analysis App is a React-based frontend that interacts with a machine learning-powered backend to analyze movie reviews. The system determines whether the sentiment of a given movie review is positive or negative using Natural Language Processing (NLP) and Machine Learning (ML) models.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Accepts text input for movie reviews
+- Processes the review using an ML model
+- Displays sentiment classification as Positive or Negative
+- Provides real-time user interaction
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies Used
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Frontend:
 
-### `npm test`
+- React.js (UI Development)
+- Axios (API Calls)
+- HTML, CSS (Styling & Layout)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Backend:
 
-### `npm run build`
+- Python (ML Model & API)
+- Flask (REST API Development)
+- TensorFlow/Keras, Scikit-learn, NLTK (ML & NLP Processing)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Database:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Firebase (User data & interaction logs)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Setup Instructions
 
-### `npm run eject`
+1. **Clone the repository:**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   ```sh
+   git clone https://github.com/shreyashrivastava1/movie-reviews-classification.git
+   cd sentiment-analysis
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. **Install dependencies:**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   ```sh
+   npm install
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. **Start the frontend application:**
 
-## Learn More
+   ```sh
+   npm start
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4. **Backend Setup:**
+   - Navigate to the backend folder and install required dependencies:
+     ```sh
+     pip install -r requirements.txt
+     ```
+   - Start the Flask API:
+     ```sh
+     python app.py
+     ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Project Structure
 
-### Code Splitting
+```
+/sentiment-analysis
+│── /src
+│   ├── components (React UI Components)
+│   ├── pages (UI Screens)
+│   ├── services (API Calls)
+│   ├── App.js (Main UI Logic)
+│── /public
+│   ├── index.html (HTML Entry Point)
+│── /backend
+│   ├── app.py (Flask API)
+│   ├── model.py (ML Model Processing)
+│── package.json (Frontend Dependencies)
+│── README.md (Project Documentation)
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## API Endpoints
 
-### Analyzing the Bundle Size
+- **POST /predict** - Accepts a movie review and returns sentiment classification
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+  **Example Request:**
 
-### Making a Progressive Web App
+  ```json
+  {
+    "review": "This movie was fantastic! The acting was superb."
+  }
+  ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+  **Example Response:**
 
-### Advanced Configuration
+  ```json
+  {
+    "sentiment": "Positive"
+  }
+  ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Deployment Strategy
 
-### Deployment
+- **Containerization:** Docker is used to containerize the application.
+- **Orchestration:** Kubernetes manages deployments in cloud environments.
+- **CI/CD Pipeline:** Jenkins automates testing and deployment.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Security Considerations
 
-### `npm run build` fails to minify
+- Input validation to prevent malicious attacks
+- Secure API endpoints with authentication if required
+- Rate limiting to prevent DDoS attacks
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contributing
+
+1. Fork the repository
+2. Create a new feature branch (`git checkout -b feature-branch`)
+3. Commit changes (`git commit -m "Added new feature"`)
+4. Push the branch (`git push origin feature-branch`)
+5. Open a pull request
+
+## License
+
+This project is licensed under the MIT License.
