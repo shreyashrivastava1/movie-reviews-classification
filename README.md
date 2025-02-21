@@ -35,7 +35,7 @@ The Movie Review Classification App is a React-based frontend that interacts wit
 
    ```sh
    git clone https://github.com/shreyashrivastava1/movie-reviews-classification.git
-   cd sentiment-analysis
+   cd movie-reviews-classification
    ```
 
 2. **Install dependencies:**
@@ -63,7 +63,7 @@ The Movie Review Classification App is a React-based frontend that interacts wit
 ## Project Structure
 
 ```
-/sentiment-analysis
+/movie-reviews-classification
 │── /src
 │   ├── components (React UI Components)
 │   ├── pages (UI Screens)
