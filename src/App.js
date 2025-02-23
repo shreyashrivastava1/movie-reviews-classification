@@ -1,5 +1,19 @@
+import Header from "./components/Header";
+import InputField from "./components/InputField";
+import SubmitButton from "./components/SubmitButton";
+
 function App() {
-  return <div className="text-3xl font-bold text-red-500">hello</div>;
+  return (
+    <div className="min-h-screen bg-black text-white flex items-center justify-center px-4">
+      <section className="flex flex-col items-center justify-center w-full gap-8">
+        <Header />
+        <div className="flex flex-col items-center gap-6 w-full max-w-lg">
+          <InputField />
+          <SubmitButton />
+        </div>
+      </section>
+    </div>
+  );
 }
 
 export default App;
