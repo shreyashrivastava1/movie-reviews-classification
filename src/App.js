@@ -7,7 +7,7 @@ import SubmitButton from "./components/SubmitButton";
 
 function App() {
   return (
-    <div className="min-h-screen bg-black font-poppins text-white flex items-center justify-center px-4">
+    <div className="min-h-screen w-full bg-black font-poppins text-white flex flex-col items-center justify-center px-4">
       {/* <BackgroundEffect /> */}
       <BE_3 />
 
