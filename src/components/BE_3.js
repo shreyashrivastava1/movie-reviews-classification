@@ -4,13 +4,13 @@ export default function BE_3() {
   const [stars, setStars] = useState([]);
 
   useEffect(() => {
-    const newStars = Array.from({ length: 500 }, (_, i) => ({
+    const newStars = Array.from({ length: 700 }, (_, i) => ({
       id: i,
       size: Math.random() * 3 + 1.5,
       top: `${Math.random() * 100}%`,
       left: `${Math.random() * 100}%`,
       animationDelay: `${Math.random() * 2}s`,
-      opacity: Math.random() * 0.08 + 0.02,
+      opacity: Math.random() * 0.2 + 0.1,
     }));
 
     setStars(newStars);
@@ -18,8 +18,6 @@ export default function BE_3() {
 
   return (
     <div className="fixed inset-0 bg-black overflow-hidden">
-      {/* <div className="background-glow"></div> */}
-
       {stars.map((star) => (
         <div
           key={star.id}

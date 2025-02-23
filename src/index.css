@@ -44,6 +44,7 @@
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
 }
 
 @keyframes fadeIn {
@@ -137,20 +138,6 @@
 .animate-fade-in-out {
   animation: fade-in-out 10s infinite ease-in-out;
 }
-@keyframes twinkle {
-  0% {
-    opacity: 0.1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.3;
-    transform: scale(1.1);
-  }
-  100% {
-    opacity: 0.1;
-    transform: scale(1);
-  }
-}
 
 @keyframes twinkle {
   0% {
@@ -162,7 +149,7 @@
     transform: scale(1.05);
   }
   50% {
-    opacity: 0.2; /* Slight brightening */
+    opacity: 0.3;
     transform: scale(1.1);
   }
   75% {
@@ -174,10 +161,9 @@
     transform: scale(1);
   }
 }
-
 .twinkle-effect {
-  animation: twinkle 6s infinite ease-in-out alternate;
-  animation-duration: calc(4s + var(--random-speed) * 2s);
+  animation: twinkle 5s infinite ease-in-out alternate;
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.1));
 }
 
 .background-glow {
