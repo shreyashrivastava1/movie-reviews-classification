@@ -5,11 +5,16 @@ export default function BackgroundEffect() {
 
   useEffect(() => {
     const randomColors = [
-      "#FF007F",
-      "#00E0FF",
-      "#FFD700",
-      "#FF4500",
-      "#8A2BE2",
+      "#1B263B", // Deep Navy (Background Depth)
+      "#415A77", // Steel Blue (Soft Accents)
+      "#778DA9", // Muted Blue (Subtle Highlights)
+      "#E63946", // Cinematic Red (Highlight)
+      "#F4A261", // Warm Gold (Contrast Accent)
+      "#A8DADC", // Soft Cyan (Light Glow)
+      "#264653", // Deep Teal (Dark Mode Balance)
+      "#2A9D8F", // Muted Emerald (For Soft Contrast)
+      "#E9C46A", // Cinematic Warm Yellow
+      "#8D99AE", // Slate Grey (Sophisticated Neutral)
     ];
 
     const presetPositions = [
@@ -39,7 +44,9 @@ export default function BackgroundEffect() {
 
   return (
     <div className="fixed inset-0 bg-black overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900 opacity-60 animate-gradient" />
+      <div className="absolute inset-0 bg-gradient-radial from-black via-gray-900 to-black opacity-80"></div>
+      {/* <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900 opacity-60 animate-gradient" /> */}
+      <div className="background-glow"></div>
 
       {particles.map((p) => (
         <div
@@ -60,3 +67,5 @@ export default function BackgroundEffect() {
     </div>
   );
 }
+
+//

@@ -3,6 +3,12 @@ module.exports = {
   content: ["./src/**/*.{html,js,jsx,ts,tsx}"], // ✅ Added JSX & TSX files
   theme: {
     extend: {
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
+      },
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(circle, var(--tw-gradient-stops))",
+      },
       animation: {
         float: "float 5s infinite ease-in-out",
         gradient: "gradient 6s infinite linear",

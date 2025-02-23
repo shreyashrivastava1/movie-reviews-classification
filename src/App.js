@@ -1,3 +1,5 @@
+import BE_2 from "./components/BE_2";
+import BE_3 from "./components/BE_3";
 import BackgroundEffect from "./components/BackgroundEffect";
 import Header from "./components/Header";
 import InputField from "./components/InputField";
@@ -5,8 +7,10 @@ import SubmitButton from "./components/SubmitButton";
 
 function App() {
   return (
-    <div className="min-h-screen bg-black text-white flex items-center justify-center px-4">
-      <BackgroundEffect />
+    <div className="min-h-screen bg-black font-poppins text-white flex items-center justify-center px-4">
+      {/* <BackgroundEffect /> */}
+      <BE_3 />
+
       <section className="flex flex-col items-center justify-center w-full gap-8 z-10">
         <Header />
         <div className="flex flex-col items-center gap-6 w-full max-w-lg">
