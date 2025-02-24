@@ -141,29 +141,30 @@
 
 @keyframes twinkle {
   0% {
-    opacity: 0.05;
+    opacity: 0.1;
     transform: scale(1);
   }
   25% {
-    opacity: 0.12;
-    transform: scale(1.05);
-  }
-  50% {
-    opacity: 0.3;
+    opacity: 0.4;
     transform: scale(1.1);
   }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.2);
+  }
   75% {
-    opacity: 0.12;
-    transform: scale(1.05);
+    opacity: 0.4;
+    transform: scale(1.1);
   }
   100% {
-    opacity: 0.05;
+    opacity: 0.1;
     transform: scale(1);
   }
 }
+
 .twinkle-effect {
-  animation: twinkle 2s infinite ease-in-out alternate;
-  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.1));
+  animation: twinkle 2.5s infinite ease-in-out alternate;
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.5));
 }
 
 .background-glow {
