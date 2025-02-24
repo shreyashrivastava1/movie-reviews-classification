@@ -162,7 +162,7 @@
   }
 }
 .twinkle-effect {
-  animation: twinkle 5s infinite ease-in-out alternate;
+  animation: twinkle 2s infinite ease-in-out alternate;
   filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.1));
 }
 

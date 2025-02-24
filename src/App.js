@@ -4,7 +4,7 @@ import BackgroundEffect from "./components/BackgroundEffect";
 import Header from "./components/Header";
 import InputField from "./components/InputField";
 import SubmitButton from "./components/SubmitButton";
-
+import { useState } from "react";
 function App() {
   return (
     <div className="min-h-screen w-full bg-black font-poppins text-white flex flex-col items-center justify-center px-4">
