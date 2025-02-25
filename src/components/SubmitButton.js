@@ -6,8 +6,9 @@ export default function SubmitButton(props) {
       <button
         className="px-6 py-2 text-lg font-semibold bg-pink-500 hover:bg-pink-600 text-white rounded-full shadow-md neon-button transition "
         onClick={props.analyseSentiment}
+        disabled={props.disabled}
       >
-        Analyze Review
+        {props.disabled ? "Processing..." : "Analyze Review"}
       </button>
     </div>
   );

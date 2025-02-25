@@ -6,21 +6,29 @@ import { useState } from "react";
 function App() {
   const [text, setText] = useState("");
   const [sentiment, setSentiment] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const analyseSentiment = async () => {
     if (!text.trim()) return;
-    const response = await fetch("http://localhost:5000/predict", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ text }),
-    });
-    if (!response.ok) {
-      throw new Error("Failed to fetch sentiment");
+    setLoading(true);
+
+    try {
+      const response = await fetch("http://localhost:5000/predict", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text }),
+      });
+
+      if (!response.ok) throw new Error("Failed to fetch sentiment");
+
+      const data = await response.json();
+      setSentiment(data.sentiment);
+    } catch (error) {
+      console.error("Error:", error);
+      setSentiment("Error analyzing sentiment. Please try again.");
+    } finally {
+      setLoading(false);
     }
-    const data = await response.json();
-    setSentiment(data.sentiment);
   };
   return (
     <div className="min-h-screen w-full bg-black font-poppins text-white flex flex-col items-center justify-center px-4">
@@ -31,12 +39,21 @@ function App() {
         <Header />
         <div className="flex flex-col items-center gap-6 w-full max-w-lg">
           <InputField text={text} setText={setText} />
-          <SubmitButton analyseSentiment={analyseSentiment} />
+          <SubmitButton
+            analyseSentiment={analyseSentiment}
+            disabled={loading}
+          />
         </div>
-        {sentiment && (
-          <div className="mt-4 text-lg font-semibold text-cyan-400">
-            Sentiment: {sentiment}
+        {loading ? (
+          <div className="mt-4 text-lg font-semibold text-yellow-400">
+            Analyzing sentiment...
           </div>
+        ) : (
+          sentiment && (
+            <div className="mt-4 text-lg font-semibold text-cyan-400">
+              Sentiment: {sentiment}
+            </div>
+          )
         )}
       </section>
     </div>

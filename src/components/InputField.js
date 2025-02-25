@@ -18,7 +18,7 @@ export default function InputField(props) {
     }, 100);
 
     return () => clearInterval(intervalRef.current);
-  }, [text]);
+  }, []);
 
   return (
     <div className="bg-black bg-opacity-50 border border-cyan-400 shadow-lg rounded-2xl p-6 w-full max-w-lg">
