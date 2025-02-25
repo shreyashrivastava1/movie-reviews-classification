@@ -16,7 +16,7 @@ function App() {
       const response = await fetch("http://localhost:5000/predict", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text }),
+        body: JSON.stringify({ text: text.trim() }),
       });
 
       if (!response.ok) throw new Error("Failed to fetch sentiment");
@@ -51,7 +51,8 @@ function App() {
         ) : (
           sentiment && (
             <div className="mt-4 text-lg font-semibold text-cyan-400">
-              Sentiment: {sentiment}
+              Sentiment:{" "}
+              {sentiment.charAt(0).toUpperCase() + sentiment.slice(1)}
             </div>
           )
         )}
