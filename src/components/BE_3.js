@@ -4,13 +4,13 @@ export default function BE_3() {
   const [stars, setStars] = useState([]);
 
   useEffect(() => {
-    const newStars = Array.from({ length: 800 }, (_, i) => ({
+    const newStars = Array.from({ length: 900 }, (_, i) => ({
       id: i,
       size: Math.random() * 4 + 1.5,
       top: `${Math.random() * 100}%`,
       left: `${Math.random() * 100}%`,
       animationDelay: `${Math.random() * 2}s`,
-      opacity: Math.random() * 0.4 + 0.1,
+      opacity: Math.random() * 0.9 + 0.1,
     }));
 
     setStars(newStars);
@@ -28,7 +28,7 @@ export default function BE_3() {
             top: star.top,
             left: star.left,
             animationDelay: star.animationDelay,
-            opacity: 0.08,
+            opacity: 0.1,
             "--random-delay": Math.random() * 8,
             "--random-speed": Math.random() * 2,
           }}
