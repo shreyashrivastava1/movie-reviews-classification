@@ -4,6 +4,8 @@ import BE_3 from "../components/BE_3";
 import Header from "../components/Header";
 import InputField from "../components/InputField";
 import SubmitButton from "../components/SubmitButton";
+import Navbar from "../components/Navbar";
+
 export default function Home() {
   const [text, setText] = useState("");
   const [sentiment, setSentiment] = useState("");
@@ -34,6 +36,7 @@ export default function Home() {
   return (
     <div className="min-h-screen w-full bg-black font-poppins text-white flex flex-col items-center justify-center px-4">
       {/* <BackgroundEffect /> */}
+      <Navbar />
       <BE_3 />
 
       <section className="flex flex-col items-center justify-center w-full gap-8 z-10">
