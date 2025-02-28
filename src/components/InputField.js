@@ -6,11 +6,9 @@ export default function InputField(props) {
   const indexRef = useRef(0);
   const intervalRef = useRef(null);
   useEffect(() => {
-    setPlaceholder(text.slice(0, indexRef.current));
-
     intervalRef.current = setInterval(() => {
       if (indexRef.current < text.length) {
-        setPlaceholder((prev) => prev + text[indexRef.current - 1]);
+        setPlaceholder(text.slice(0, indexRef.current + 1));
         indexRef.current++;
       } else {
         clearInterval(intervalRef.current);
