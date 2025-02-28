@@ -1,15 +1,34 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import BE_3 from "../components/BE_3";
 import Header from "../components/Header";
 import InputField from "../components/InputField";
 import SubmitButton from "../components/SubmitButton";
 import Navbar from "../components/Navbar";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { auth } from "../firebase";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
+  const [user, setUser] = useState(null);
   const [text, setText] = useState("");
   const [sentiment, setSentiment] = useState("");
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    console.log("User:", auth.currentUser);
+
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      if (!currentUser) {
+        navigate("/signin");
+      } else {
+        setUser(currentUser);
+      }
+      setLoading(false);
+    });
+    return () => unsubscribe();
+  }, [navigate]);
 
   const analyseSentiment = async () => {
     if (!text.trim()) return;
@@ -33,9 +52,9 @@ export default function Home() {
       setLoading(false);
     }
   };
+
   return (
     <div className="min-h-screen w-full bg-black font-poppins text-white flex flex-col items-center justify-center px-4">
-      {/* <BackgroundEffect /> */}
       <Navbar />
       <BE_3 />
 
