@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+
 export default function Header() {
   return (
     <header className="flex items-center justify-between gap-4 p-4">
