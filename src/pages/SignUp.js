@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { auth } from "../firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth, googleProvider } from "../firebase";
+import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import BE_3 from "../components/BE_3";
 import Header from "../components/Header";
 import VerticallyCenteredModal from "../components/VerticallyCenteredModal";
@@ -49,6 +49,16 @@ const Signup = () => {
       setModalShow(true);
     }
   };
+  const handleGoogleSignup = async () => {
+    try {
+      await signInWithPopup(auth, googleProvider);
+      setModalMessage("✅ Google Sign-Up successful! Welcome to MovieMeter 🎬");
+      setModalShow(true);
+    } catch (error) {
+      setModalMessage("❌ Google Sign-Up failed. Please try again.");
+      setModalShow(true);
+    }
+  };
 
   const handleClose = () => {
     setModalShow(false);
@@ -81,6 +91,12 @@ const Signup = () => {
           onClick={handleSignup}
         >
           Sign Up
+        </button>
+        <button
+          className="px-5 py-2 text-white border border-red-500 rounded-lg hover:bg-red-500 transition"
+          onClick={handleGoogleSignup}
+        >
+          Sign Up with Google
         </button>
         <div
           onClick={() => navigate("/signin")}
