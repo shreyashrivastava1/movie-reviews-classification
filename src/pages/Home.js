@@ -14,6 +14,8 @@ export default function Home() {
   const [text, setText] = useState("");
   const [sentiment, setSentiment] = useState("");
   const [loading, setLoading] = useState(false);
+  const [movieName, setMovieName] = useState("");
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -61,6 +63,13 @@ export default function Home() {
       <section className="flex flex-col items-center justify-center w-full gap-8 z-10">
         <Header />
         <div className="flex flex-col items-center gap-6 w-full max-w-lg">
+          <input
+            className="w-80 px-4 py-2 rounded-lg border border-pink-500 bg-transparent text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 transition neon-glow"
+            type="text"
+            placeholder="Enter Movie Name"
+            value={movieName}
+            onChange={(e) => setMovieName(e.target.value)}
+          />
           <InputField text={text} setText={setText} />
           <SubmitButton
             analyseSentiment={analyseSentiment}
