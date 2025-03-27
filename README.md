@@ -1,8 +1,8 @@
-# Sentiment Analysis App
+# Movie Review Classification App
 
 ## Overview
 
-The Sentiment Analysis App is a React-based frontend that interacts with a machine learning-powered backend to analyze movie reviews. The system determines whether the sentiment of a given movie review is positive or negative using Natural Language Processing (NLP) and Machine Learning (ML) models.
+The Movie Review Classification App is a React-based frontend that interacts with a machine learning-powered backend to analyze movie reviews. The system determines whether the sentiment of a given movie review is positive or negative using Natural Language Processing (NLP) and Machine Learning (ML) models.
 
 ## Features
 
@@ -35,7 +35,7 @@ The Sentiment Analysis App is a React-based frontend that interacts with a machi
 
    ```sh
    git clone https://github.com/shreyashrivastava1/movie-reviews-classification.git
-   cd sentiment-analysis
+   cd movie-reviews-classification
    ```
 
 2. **Install dependencies:**
@@ -63,7 +63,7 @@ The Sentiment Analysis App is a React-based frontend that interacts with a machi
 ## Project Structure
 
 ```
-/sentiment-analysis
+/movie-reviews-classification
 │── /src
 │   ├── components (React UI Components)
 │   ├── pages (UI Screens)
