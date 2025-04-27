@@ -1,0 +1,230 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-black {
+  background-color: #000;
+}
+
+.text-cyan-400 {
+  color: #00e6ff;
+}
+
+.neon-glow {
+  text-shadow: 0 0 5px rgba(0, 230, 255, 0.5), 0 0 10px rgba(0, 230, 255, 0.3);
+}
+
+.neon-text:hover {
+  text-shadow: 0 0 6px rgba(0, 230, 255, 0.7), 0 0 12px rgba(0, 230, 255, 0.4);
+  transform: scale(1.02);
+}
+
+.neon-button {
+  background: linear-gradient(to right, #ff007f, #d1005b);
+  border-radius: 8px;
+  box-shadow: 0px 2px 6px rgba(255, 0, 127, 0.25);
+}
+
+.neon-button:hover {
+  box-shadow: 0px 3px 10px rgba(255, 0, 127, 0.4);
+}
+
+.neon-input {
+  border: 1px solid rgba(0, 230, 255, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+}
+
+.neon-input:focus {
+  box-shadow: 0 0 10px rgba(0, 230, 255, 0.6);
+  border-color: rgba(0, 230, 255, 0.8);
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(255, 0, 127, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
+  }
+}
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient 8s ease infinite;
+}
+
+@keyframes slow-move {
+  0% {
+    transform: translateX(-50%);
+  }
+  50% {
+    transform: translateX(50%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.animate-slow-move {
+  animation: slow-move 10s infinite linear;
+}
+@keyframes fade-in-out {
+  0% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  50% {
+    opacity: 0.1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+}
+
+.animate-fade-in-out {
+  animation: fade-in-out 10s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.1;
+    transform: scale(1);
+  }
+  25% {
+    opacity: 0.4;
+    transform: scale(1.1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.2);
+  }
+  75% {
+    opacity: 0.4;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 0.1;
+    transform: scale(1);
+  }
+}
+
+.twinkle-effect {
+  animation: twinkle 2.5s infinite ease-in-out alternate;
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.5));
+}
+
+.background-glow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle,
+    rgba(20, 20, 20, 0.6) 10%,
+    rgba(0, 0, 0, 1) 85%
+  );
+  opacity: 0.85;
+}
+.movie-logo {
+  text-shadow: 0 0 10px rgba(0, 230, 255, 0.3);
+}
+
+@keyframes drift {
+  0% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.03; /* Reduce initial visibility */
+  }
+  50% {
+    transform: translateY(-3px) translateX(2px);
+    opacity: 0.12; /* Small fade in */
+  }
+  100% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.03;
+  }
+}
+
+.drifting-star {
+  animation: drift 10s infinite ease-in-out alternate;
+  animation-delay: calc(
+    var(--random-delay) * 1s
+  ); /* Random delay for uniqueness */
+}
+
+.background-glow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle,
+    rgba(20, 20, 20, 0.8) 20%,
+    rgba(0, 0, 0, 1) 90%
+  );
+  opacity: 0.9;
+}
+
+.gradient-light {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 255, 255, 0.08),
+    rgba(255, 0, 127, 0.05)
+  );
+}
