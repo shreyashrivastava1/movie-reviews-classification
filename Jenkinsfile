@@ -38,11 +38,11 @@ pipeline {
         stage('Build Docker Images') {
             steps {
                 echo "Building backend and frontend Docker images..."
-                bat 'docker-compose build --progress=plain'
+                bat 'docker-compose build'
             }
         }
 
-        stage('Deploy Containers') {
+        stage(' Deploy Containers') {
             steps {
                 echo "Starting all services using Docker Compose..."
                 bat 'docker-compose up -d'
