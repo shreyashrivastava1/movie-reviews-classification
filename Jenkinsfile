@@ -13,14 +13,14 @@ pipeline {
 
     stages {
 
-        stage('📥 Clone Repository') {
+        stage('Clone Repository') {
             steps {
                 echo "Cloning the GitHub repository (branch: dev)..."
-                git branch: 'dev', url: 'https://github.com/your-username/movie-reviews-classification.git'
+                git branch: 'dev', url: 'https://github.com/shreyashrivastava1/movie-reviews-classification.git'
             }
         }
 
-        stage('🔍 Check Docker Environment') {
+        stage('Check Docker Environment') {
             steps {
                 echo "Verifying Docker installation and versions..."
                 bat 'docker --version'
@@ -28,28 +28,28 @@ pipeline {
             }
         }
 
-        stage('🧼 Clean Old Containers') {
+        stage('Clean Old Containers') {
             steps {
                 echo "Stopping and removing any previous containers..."
                 bat 'docker-compose down || echo No containers to stop.'
             }
         }
 
-        stage('📦 Build Docker Images') {
+        stage('Build Docker Images') {
             steps {
                 echo "Building backend and frontend Docker images..."
                 bat 'docker-compose build --progress=plain'
             }
         }
 
-        stage('🚀 Deploy Containers') {
+        stage('Deploy Containers') {
             steps {
                 echo "Starting all services using Docker Compose..."
                 bat 'docker-compose up -d'
             }
         }
 
-        stage('🧪 Smoke Test Backend') {
+        stage('Smoke Test Backend') {
             steps {
                 echo "Sending test request to /predict API to verify backend..."
                 bat """
@@ -60,7 +60,7 @@ pipeline {
             }
         }
 
-        stage('🌐 Confirm Frontend Deployment') {
+        stage('Confirm Frontend Deployment') {
             steps {
                 echo "Testing frontend homepage response..."
                 bat """
@@ -70,7 +70,7 @@ pipeline {
         }
 
         // Optional: Add cleanup stage
-        // stage('🧹 Cleanup After Test') {
+        // stage('Cleanup After Test') {
         //     steps {
         //         echo "Cleaning up containers after verification..."
         //         bat 'docker-compose down'
