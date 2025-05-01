@@ -4,7 +4,7 @@ services:
   backend:
     build: ./backend
     ports:
-      - "0:5001"
+      - "5002:5001"
     restart: always
 
   frontend:
@@ -12,7 +12,7 @@ services:
       context: .
       dockerfile: Dockerfile # 👈 this is your React Dockerfile in root
     ports:
-      - "0:3000"
+      - "3000:3000"
     depends_on:
       - backend
     restart: always
