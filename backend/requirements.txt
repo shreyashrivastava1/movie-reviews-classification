@@ -1,0 +1,7 @@
+nltk
+scikit-learn
+flask
+flask-cors
+transformers
+torch
+gunicorn

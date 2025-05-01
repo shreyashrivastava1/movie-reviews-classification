@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/predict": {
-        target: "http://localhost:5001",
+        target: "http://backend:5001",
         changeOrigin: true,
         secure: false,
       },
