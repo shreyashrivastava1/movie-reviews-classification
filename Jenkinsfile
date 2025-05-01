@@ -8,31 +8,29 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git branch: 'dev', url: 'https://github.com/shreyashrivastava1/movie-reviews-classification.git'
+                git branch: 'dev', url: 'https://github.com/your-username/movie-reviews-classification.git'
             }
         }
 
-        stage('Build and Deploy App') {
+        stage('Build and Run') {
             steps {
-                dir('frontend') {
-                    sh '''
-                    echo " Cleaning previous containers..."
-                    docker-compose down
+                sh '''
+                echo "🛑 Stopping previous containers..."
+                docker-compose down
 
-                    echo " Building and running containers..."
-                    docker-compose up --build -d
-                    '''
-                }
+                echo "Building and starting new containers..."
+                docker-compose up --build -d
+                '''
             }
         }
     }
 
     post {
         success {
-            echo '✅ Web app deployed successfully!'
+            echo '✅ App deployed and running!'
         }
         failure {
-            echo '❌ Something went wrong during deployment.'
+            echo '❌ Deployment failed.'
         }
     }
 }
