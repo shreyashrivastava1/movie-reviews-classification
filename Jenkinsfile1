@@ -32,8 +32,8 @@ pipeline {
                         echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
                         docker tag movie-sentiment-backend shreyashrivastava/movie-review-app-backend:latest
                         docker tag movie-sentiment-frontend shreyashrivastava/movie-sentiment-app-frontend:latest
-                        docker push shreyashrivastava/movie-sentiment-app-backend:latest
-                        docker push shreyashrivastava/movie-sentiment-app-frontend:latest
+                        docker push shreyashrivastava/movie-review-app-backend:latest
+                        docker push shreyashrivastava/movie-review-app-frontend:latest
                     '''
                 }
             }
