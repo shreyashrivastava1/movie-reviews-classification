@@ -2,35 +2,50 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_BUILDKIT = 1
+        DOCKERHUB_CREDENTIALS = credentials('dockerhub-creds')
+        IMAGE_NAME = 'shreyashrivastava/movie-sentiment-app'
     }
 
     stages {
-        stage('Clone Repository') {
+        stage('Checkout Code') {
             steps {
-                git branch: 'dev', url: 'https://github.com/your-username/movie-reviews-classification.git'
+                git url: 'https://github.com/shreyashrivastava1/movie-reviews-classification.git', branch: 'dev'
             }
         }
 
-        stage('Build and Run') {
+        stage('Build Docker Images') {
             steps {
-                sh '''
-                echo " Stopping previous containers..."
-                docker-compose down
-
-                echo " Building and starting new containers..."
-                docker-compose up --build -d
-                '''
+                sh 'docker compose -f docker-compose.yml build'
             }
         }
-    }
 
-    post {
-        success {
-            echo ' App deployed and running!'
+        stage('Run Unit Tests') {
+            steps {
+                sh 'docker compose run backend pytest' // Adjust if needed
+            }
         }
-        failure {
-            echo ' Deployment failed.'
+
+        stage('Push to DockerHub') {
+            steps {
+                script {
+                    docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-creds') {
+                        sh "docker tag movie-sentiment-backend ${IMAGE_NAME}:backend-dev"
+                        sh "docker tag movie-sentiment-frontend ${IMAGE_NAME}:frontend-dev"
+                        sh "docker push ${IMAGE_NAME}:backend-dev"
+                        sh "docker push ${IMAGE_NAME}:frontend-dev"
+                    }
+                }
+            }
+        }
+
+        stage('Deploy to Server') {
+            steps {
+                sshagent(['your-server-key']) {
+                    sh '''
+                    ssh user@yourserver "cd /app && git pull && docker compose down && docker compose up -d --build"
+                    '''
+                }
+            }
         }
     }
 }

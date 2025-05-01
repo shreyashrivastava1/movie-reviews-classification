@@ -4,7 +4,7 @@ from transformers import pipeline
 
 app = Flask(__name__)
 
-# 🔥 Allow CRA frontend explicitly
+
 CORS(app, resources={r"/predict": {"origins": "http://localhost:3000"}}, supports_credentials=True)
 
 classifier = pipeline("text-classification", model="bhadresh-savani/bert-base-uncased-emotion")
@@ -12,7 +12,7 @@ classifier = pipeline("text-classification", model="bhadresh-savani/bert-base-un
 @app.route('/predict', methods=['POST', 'OPTIONS'])
 def predict():
     if request.method == 'OPTIONS':
-        return '', 200  # 🛡️ preflight handled
+        return '', 200  
 
     data = request.get_json()
     if not data or 'text' not in data:
