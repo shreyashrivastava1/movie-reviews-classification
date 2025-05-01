@@ -1,5 +1,5 @@
-nltk
-scikit-learn
+#nltk
+#scikit-learn
 flask
 flask-cors
 transformers
