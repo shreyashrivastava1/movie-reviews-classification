@@ -16,7 +16,7 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 echo "Cloning the GitHub repository (branch: dev)..."
-                git branch: 'dev', url: 'https://github.com/shreyashrivastava1/movie-reviews-classification.git'
+                git branch: 'dev', url: 'https://github.com/your-username/movie-reviews-classification.git'
             }
         }
 
@@ -42,7 +42,7 @@ pipeline {
             }
         }
 
-        stage('Deploy Containers') {
+        stage(' Deploy Containers') {
             steps {
                 echo "Starting all services using Docker Compose..."
                 bat 'docker-compose up -d'
