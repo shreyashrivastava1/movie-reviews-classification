@@ -3,7 +3,6 @@ pipeline {
 
     environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub-creds')
-        IMAGE_NAME = 'shreyashrivastava/movie-sentiment-app'
     }
 
     stages {
@@ -30,14 +29,13 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                     sh '''
                         echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
-                        docker tag movie-sentiment-backend shreyashrivastava/movie-review-app-backend:latest
-                        docker tag movie-sentiment-frontend shreyashrivastava/movie-sentiment-app-frontend:latest
-                        docker push shreyashrivastava/movie-review-app-backend:latest
-                        docker push shreyashrivastava/movie-review-app-frontend:latest
+                        docker tag movie-reviews-classification_backend shreya1221/movie-review-app-backend:latest
+                        docker tag movie-reviews-classification_frontend shreya1221/movie-review-app-frontend:latest
+                        docker push shreya1221/movie-review-app-backend:latest
+                        docker push shreya1221/movie-review-app-frontend:latest
                     '''
                 }
             }
         }
-
     }
 }
