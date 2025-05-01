@@ -8,19 +8,34 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git url: 'https://github.com/shreyashrivastava1/movie-reviews-classification.git', branch: 'dev'
+                sh '''
+                    if [ -d .git ]; then
+                        git reset --hard
+                        git clean -fd
+                        git pull origin dev
+                    else
+                        git clone -b dev https://github.com/shreyashrivastava1/movie-reviews-classification.git .
+                    fi
+                '''
+                sh 'git log -1' // Optional: Show latest pulled commit for debug
             }
         }
 
         stage('Build Docker Images') {
             steps {
-                sh 'docker compose -f docker-compose.yaml build || docker-compose -f docker-compose.yaml build'
+                sh 'docker compose -f docker-compose.yaml build --no-cache || docker-compose -f docker-compose.yaml build --no-cache'
             }
         }
 
         stage('Run Backend Smoke Test') {
             steps {
                 sh 'docker compose run backend echo "Backend container ran successfully" || docker-compose run backend echo "Backend container ran successfully"'
+            }
+        }
+
+        stage('Restart Containers') {
+            steps {
+                sh 'docker compose down && docker compose up -d || docker-compose down && docker-compose up -d'
             }
         }
 
