@@ -38,7 +38,7 @@ pipeline {
         stage('Build Docker Images') {
             steps {
                 echo "Building backend and frontend Docker images..."
-                bat 'docker-compose build --progress=plain'
+                bat 'docker-compose build'
             }
         }
 
