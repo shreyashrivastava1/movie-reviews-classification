@@ -55,14 +55,6 @@ pipeline {
             }
         }
 
-        stage('Confirm Frontend is Live') {
-            steps {
-                echo "Checking if frontend is serving at port 3000..."
-                bat '''
-                    curl -I http://localhost:%FRONTEND_PORT% || echo Frontend may need more time to start...
-                '''
-            }
-        }
     }
 
     post {
