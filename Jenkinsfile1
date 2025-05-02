@@ -6,7 +6,11 @@ pipeline {
     }
 
     stages {
-       
+        stage('Checkout Code') {
+            steps {
+                git url: 'https://github.com/shreyashrivastava1/movie-reviews-classification.git', branch: 'dev'
+            }
+        }
 
         stage('Build Docker Images') {
             steps {
