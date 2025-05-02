@@ -37,7 +37,7 @@ export default function Home() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://backend:5001/predict", {
+      const response = await fetch("http://localhost:5002/predict", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: text.trim() }),
