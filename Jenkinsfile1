@@ -25,8 +25,9 @@ pipeline {
         stage('Restart Containers') {
             steps {
                 sh '''
-                    docker ps --filter "status=running" --format "{{.ID}} {{.Ports}}" | grep -E ":5001->|:3000->" | awk '{print $1}' | xargs -r docker stop || true
-                    docker ps -a --format "{{.ID}} {{.Ports}}" | grep -E ":5001->|:3000->" | awk '{print $1}' | xargs -r docker rm -f || true
+                    docker ps --filter "status=running" --format "{{.ID}} {{.Ports}}" | grep -E ":5001->|:5002->|:3000->" | awk '{print $1}' | xargs -r docker stop || true
+                    docker ps -a --format "{{.ID}} {{.Ports}}" | grep -E ":5001->|:5002->|:3000->" | awk '{print $1}' | xargs -r docker rm -f || true
+
                     docker rm -f $(docker ps -aq --filter "name=_run") || true
                     docker-compose down --remove-orphans || true
                     docker container prune -f
