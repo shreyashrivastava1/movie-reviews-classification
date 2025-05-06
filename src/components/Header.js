@@ -6,7 +6,7 @@ export default function Header() {
       <a href="/">
         <h1 className="text-4xl font-bold  neon-glow mb-6 tracking-wide font-poppins movie-logo">
           <span className="text-white bold">What's the </span>
-          <span className="text-pink-400 bold">Verdict</span>
+          <span className="text-pink-400 bold">Sample</span>
         </h1>
       </a>
     </header>
