@@ -28,12 +28,6 @@ pipeline {
             }
         }
 
-        stage('Clean Previous Containers') {
-            steps {
-                echo "Stopping previous Docker containers..."
-                bat 'docker-compose down || echo No previous containers.'
-            }
-        }
 
         stage('Build Images') {
             steps {
