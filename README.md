@@ -1,4 +1,4 @@
-# Sentiment Analysis App
+# Movie Reviews Classification Application
 
 ## Overview
 
