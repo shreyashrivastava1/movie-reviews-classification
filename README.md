@@ -25,7 +25,7 @@ The Sentiment Analysis App is a React-based frontend that interacts with a machi
 - Flask (REST API Development)
 - TensorFlow/Keras, Scikit-learn, NLTK (ML & NLP Processing)
 
-###DevOps
+### DevOps
 - Docker
 - Jenkins
 
